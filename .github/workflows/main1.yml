@@ -12,7 +12,7 @@ jobs:
 
       # Cài đặt các thư viện cần thiết cho Buildozer
       - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
+        uses: ArtemSBulgakov/buildozer-action@v4
         id: buildozer
         with:
           command: buildozer android debug
