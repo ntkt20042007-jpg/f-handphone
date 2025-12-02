@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # Cài đặt các thư viện cần thiết cho Buildozer
       - name: Build with Buildozer
@@ -18,9 +18,14 @@ jobs:
           command: buildozer android debug
           buildozer_version: master
 
+      # BƯỚC QUAN TRỌNG: Sửa quyền file để GitHub có thể đọc được file APK
+      - name: Fix permissions
+        run: |
+          sudo chown -R $USER:$USER bin
+
       # Upload file APK sau khi build xong
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: package
-          path: ${{ steps.buildozer.outputs.filename }}
+          path: bin/*.apk
