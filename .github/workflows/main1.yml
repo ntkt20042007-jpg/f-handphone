@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # Cài đặt các thư viện cần thiết cho Buildozer
       - name: Build with Buildozer
@@ -20,7 +20,7 @@ jobs:
 
       # Upload file APK sau khi build xong
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: package
           path: ${{ steps.buildozer.outputs.filename }}
