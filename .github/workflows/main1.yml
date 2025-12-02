@@ -11,8 +11,9 @@ jobs:
       - uses: actions/checkout@v4
 
       # Cài đặt các thư viện cần thiết cho Buildozer
+      # LƯU Ý: Giữ nguyên @v1 ở dòng dưới, KHÔNG đổi thành v4
       - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v4
+        uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
           command: buildozer android debug
